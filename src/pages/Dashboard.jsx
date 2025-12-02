@@ -298,7 +298,7 @@ export default function Dashboard() {
                       </td>
                       <td className="px-6 py-4 flex gap-2 whitespace-nowrap text-sm">
                         <Link
-                          href={`/code/${link.code}`}
+                          to={`/code/${link.code}`}
                           className="text-blue-600 hover:text-blue-800 mr-4"
                         >
                            <ChartNoAxesColumn/>
