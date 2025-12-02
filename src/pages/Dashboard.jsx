@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { ChartNoAxesColumn } from 'lucide-react';
 import { Trash } from 'lucide-react';
 import { Copy } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import apiUrl from '../api';
 
 export default function Dashboard() {
@@ -296,12 +297,12 @@ export default function Dashboard() {
                         {formatDate(link.last_clicked_at)}
                       </td>
                       <td className="px-6 py-4 flex gap-2 whitespace-nowrap text-sm">
-                        <a
+                        <Link
                           href={`/code/${link.code}`}
                           className="text-blue-600 hover:text-blue-800 mr-4"
                         >
                            <ChartNoAxesColumn/>
-                        </a>
+                        </Link>
                         <button
                           onClick={() => handleDelete(link.code)}
                           className="text-red-600 hover:text-red-800"

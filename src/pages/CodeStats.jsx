@@ -11,6 +11,7 @@ export default function CodeStats() {
   const [link, setLink] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  console.log(code)
 
   useEffect(() => {
     loadStats();
@@ -31,7 +32,7 @@ export default function CodeStats() {
       if (!response.ok) {
         throw new Error(result.message || 'Failed to load link stats');
       }
-
+      console.log(result)
       setLink(result);
       setError('');
     } catch (err) {
@@ -75,6 +76,7 @@ export default function CodeStats() {
   }
 
   const shortUrl = `${window.location.origin}/${link.code}`;
+  console.log(window.location.origin,"nawles" ,link.code)
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
