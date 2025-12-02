@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import { ChartNoAxesColumn } from 'lucide-react';
 import { Trash } from 'lucide-react';
 import { Copy } from 'lucide-react';
+import apiUrl from '../api';
 
 export default function Dashboard() {
   // Backend URL - change this when deploying
-  const API_URL = 'http://localhost:8001';
+  // const API_URL = 'http://localhost:8001';
 
   // State to store all links
   const [links, setLinks] = useState([]);
@@ -30,7 +31,7 @@ export default function Dashboard() {
     try {
       setLoading(true);
       // Make GET request to fetch all links
-      const response = await fetch(`${API_URL}/api/links`);
+      const response = await fetch(`${apiUrl}/api/links`);
       
       // Check if response is ok
       if (!response.ok) {
@@ -75,7 +76,7 @@ export default function Dashboard() {
       }
 
       // Make POST request to create link
-      const response = await fetch(`${API_URL}/api/links`, {
+      const response = await fetch(`${apiUrl}/api/links`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -111,7 +112,7 @@ export default function Dashboard() {
 
     try {
       // Make DELETE request
-      const response = await fetch(`${API_URL}/api/links/${code}`, {
+      const response = await fetch(`${apiUrl}/api/links/${code}`, {
         method: 'DELETE'
       });
 

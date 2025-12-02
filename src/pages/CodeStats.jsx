@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Copy } from 'lucide-react';
+import apiUrl from '../api';
 
 export default function CodeStats() {
   // Backend URL - change this when deploying
-  const API_URL = 'http://localhost:8001';
+  // const API_URL = 'http://localhost:8001';
 
   const { code } = useParams();
   const [link, setLink] = useState(null);
@@ -21,7 +22,7 @@ export default function CodeStats() {
       setLoading(true);
       
       // Make GET request to fetch link stats
-      const response = await fetch(`${API_URL}/api/links/${code}`);
+      const response = await fetch(`${apiUrl}/api/links/${code}`);
       
       // Convert response to JSON
       const result = await response.json();

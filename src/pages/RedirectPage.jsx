@@ -1,16 +1,17 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import apiUrl from '../api';
 
 export default function RedirectPage() {
   // Backend URL - change this when deploying
-  const API_URL = 'http://localhost:8001';
+ 
 
   const { code } = useParams();
 
   useEffect(() => {
     // Redirect to backend which will handle the redirect
     // The backend will increment clicks and return 302 redirect to target URL
-    window.location.href = `${API_URL}/${code}`;
+    window.location.href = `${apiUrl}/${code}`;
   }, [code]);
 
   return (

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
+import apiUrl from '../api';
 
 export default function Healthz() {
   // Backend URL - change this when deploying
-  const API_URL = 'http://localhost:8001';
+  // const API_URL = 'http://localhost:8001';
 
   const [health, setHealth] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -19,7 +20,7 @@ export default function Healthz() {
   async function loadHealth() {
     try {
       // Make GET request to health check endpoint
-      const response = await fetch(`${API_URL}/healthz`);
+      const response = await fetch(`${apiUrl}/healthz`);
       
       // Convert response to JSON
       const result = await response.json();
